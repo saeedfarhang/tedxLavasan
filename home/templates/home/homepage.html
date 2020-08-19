@@ -1,0 +1,60 @@
+{% extends 'home/base.html' %} {% load static %} {% block content %}
+<div class="home">
+    <img src="{%static 'images/img.jpg'%}" alt="">
+    <img src="{%static 'images/tedxlogo.png'%}" alt="" class="tedxlogo">
+    <div class="date">
+        <h1>Agust16</h1>
+        <p>2020</p>
+
+    </div>
+    <div class="location">
+        <p>location</p>
+        <div class="line"></div>
+        <p>Lorem episum</p>
+    </div>
+    <p class="time">12:30 - 14:45</p>
+    <div class="social">
+        <a href="#twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div class="arrow-down"><i class="fas fa-angle-down"></i></div>
+</div>
+<div class="aboutted">
+    <div class="tabs">
+        <div class="title">
+            <p>تد</p>
+            <div class="underline"></div>
+        </div>
+        <div class="title">
+            <p>تدکس</p>
+            <div class="underline"></div>
+        </div>
+        <div class="title">
+            <p>تدکس لواسان</p>
+            <div class="underline"></div>
+        </div>
+    </div>
+    <div class="abouttext">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
+    </div>
+</div>
+<div class="speakers">
+    <div class="section-title">
+        <h1>سخنرانان</h1>
+        <div class="underline"></div>
+    </div>
+    <a href="">
+        <div class="speaker">
+            <h2 class="speaker-name">سرور</h2>
+            <h2 class="speaker-title">سرور</h2>
+            <div class="line"></div>
+            <h2 class="speaker-intro">سرور</h2>
+            <div class="social"><i class="fab fa-instagram"></i>
+                <p>server</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock content %}

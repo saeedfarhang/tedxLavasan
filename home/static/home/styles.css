@@ -1,0 +1,50 @@
+:root {
+  --red: #e62b1e;
+  --secondery: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+div.home {
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+  color: #fff;
+}
+
+div.home img:nth-child(1) {
+  max-width: 225px;
+}
+
+div.home .tedxlogo {
+  max-width: 355px;
+  margin-left: 30px;
+}
+
+div.home .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+div.home .location p:nth-child(1) {
+  color: var(--red);
+}
+/*# sourceMappingURL=styles.css.map */
