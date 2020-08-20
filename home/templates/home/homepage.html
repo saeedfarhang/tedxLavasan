@@ -50,16 +50,37 @@
         <h1>سخنرانان</h1>
         <div class="underline"></div>
     </div>
+    {% for speaker in speakers %}
     <a href="">
         <div class="speaker">
-            <h2 class="speaker-name">سرور</h2>
-            <h2 class="speaker-title">سرور</h2>
+            <h2 class="speaker-name">{{speaker.name}}</h2>
+            <h2 class="speaker-title">{{speaker.title}}</h2>
             <div class="line"></div>
-            <h2 class="speaker-intro">سرور</h2>
+            <h2 class="speaker-intro">{{speaker.intro}}</h2>
             <div class="social"><i class="fab fa-instagram"></i>
-                <p>server</p>
+                <a href="https://www.instagram.com/{{speaker.insta_id}}" target="_blank">{{speaker.insta_id}}</a>
             </div>
         </div>
     </a>
+    {% endfor %}
+    <div class="introducting-speaker">
+        <p>میخواهید سخنران معرفی کنید؟</p>
+        <div class="line"></div>
+        <div class="intro-speaker-btn">
+            معرفی سخنران
+        </div>
+    </div>
+</div>
+<div class="introducting-speaker-section">
+    <div class="section-title">
+        <h1>معرفی سخنران</h1>
+        <div class="underline"></div>
+    </div>
+    <div class="intro-speaker-form">
+        <form action="">
+            {{introspeakerform}} {{csrf_token}}
+            <button type="submit">ثبت</button>
+        </form>
+    </div>
 </div>
 {% endblock content %}
