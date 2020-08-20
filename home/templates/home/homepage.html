@@ -1,23 +1,28 @@
 {% extends 'home/base.html' %} {% load static %} {% block content %}
 <div class="home">
     <img src="{%static 'images/img.jpg'%}" alt="">
-    <img src="{%static 'images/tedxlogo.png'%}" alt="" class="tedxlogo">
-    <div class="date">
-        <h1>Agust16</h1>
-        <p>2020</p>
+    <img src="{%static 'images/tedxlogo.png'%}" alt="">
 
+    <div class="description">
+        <div class="date">
+            <h1>Agust16</h1>
+            <p>2020</p>
+
+        </div>
+        <div class="location">
+            <p>location</p>
+            <div class="line"></div>
+            <p>Lorem episum</p>
+        </div>
+        <p class="time">12:30 - 14:45</p>
+
+        <div class="social">
+            <a href="#twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#instagram"><i class="fab fa-instagram"></i></a>
+        </div>
     </div>
-    <div class="location">
-        <p>location</p>
-        <div class="line"></div>
-        <p>Lorem episum</p>
-    </div>
-    <p class="time">12:30 - 14:45</p>
-    <div class="social">
-        <a href="#twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#instagram"><i class="fab fa-instagram"></i></a>
-    </div>
+
 
     <div class="arrow-down"><i class="fas fa-angle-down"></i></div>
 </div>

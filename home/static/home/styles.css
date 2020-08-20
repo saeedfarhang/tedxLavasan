@@ -17,6 +17,10 @@ li {
 
 body {
   overflow-x: hidden;
+  font-size: 16px;
+  font-family: coolvetica, sans-serif;
+  font-style: normal;
+  font-weight: 100;
 }
 
 div.home {
@@ -24,18 +28,30 @@ div.home {
   height: 100vh;
   background: #000000;
   color: #fff;
+  padding-top: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 div.home img:nth-child(1) {
   max-width: 225px;
 }
 
-div.home .tedxlogo {
-  max-width: 355px;
+div.home img:nth-child(2) {
+  width: 80vw;
+  margin: 0 30px;
+}
+
+div.home .description {
   margin-left: 30px;
 }
 
-div.home .date {
+div.home .description .date {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,7 +60,96 @@ div.home .date {
           align-items: flex-end;
 }
 
-div.home .location p:nth-child(1) {
+div.home .description .date h1 {
   color: var(--red);
+  font-weight: 500;
+}
+
+div.home .description .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.home .description .location p:nth-child(1) {
+  color: var(--red);
+  margin-right: 5px;
+}
+
+div.home .description .location p {
+  letter-spacing: 1px;
+}
+
+div.home .description .location .line {
+  width: 3px;
+  height: 20px;
+  background: #fff;
+  margin-right: 5px;
+}
+
+div.home .description .time {
+  letter-spacing: 8.5px;
+}
+
+div.home .description .social {
+  margin-top: 12px;
+  margin-left: 30px;
+}
+
+div.home .description .social a {
+  color: #fff;
+  font-size: 1.4em;
+  text-decoration: none;
+  margin-right: 25px;
+}
+
+div.home .arrow-down {
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+div.aboutted {
+  direction: rtl;
+  padding: 0 42px;
+  padding-bottom: 40px;
+  background: #2A2A2A;
+  height: 100%;
+  color: #fff;
+}
+
+div.aboutted .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div.aboutted .tabs .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 21px 7px;
+}
+
+div.aboutted .tabs .title .underline {
+  height: 2px;
+  background: var(--red);
+}
+
+div.aboutted .abouttext {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background: #2A2A2A;
+  color: #fff;
+  border-radius: 50px;
+  -webkit-box-shadow: 12px 12px 17px #232323, -12px -12px 17px #313131;
+          box-shadow: 12px 12px 17px #232323, -12px -12px 17px #313131;
 }
 /*# sourceMappingURL=styles.css.map */
