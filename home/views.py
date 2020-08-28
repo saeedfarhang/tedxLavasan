@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
 from . import forms
 from . import models
 # Create your views here.
@@ -6,23 +6,42 @@ from . import models
 
 def homeview(request):
     speakers = models.Speaker.objects.all()
-    introspeakerform = forms.IntroSpeakerForm
+    team = models.Team.objects.all()
+    # intro speaker form
+    if request.method == 'POST':
+        if request.POST.get('form_type') == 'introspeakerform':
+            introspeakerform = forms.IntroSpeakerForm(request.POST)
+            if introspeakerform.is_valid():
+                print("intro speakeaker post")
+                introspeakerform.save()
+                # introspeakerform = forms.IntroSpeakerForm()
+                return redirect('home:homeurl')
+            else:
+                print(introspeakerform.errors)
+        
+        elif request.POST.get('form_type') == 'addsponsorform':
+            addsponsorform = forms.addSponsorForm(request.POST)
+            if addsponsorform.is_valid():
+                print("add sponser post")
+                addsponsorform.save()
+                return redirect('home:homeurl')
+            else:
+                print(addsponsorform.errors)
+        
+        elif request.POST.get('form_type') == 'volunteerform':
+            volunteerform = forms.VolunteerForm(request.POST)
+            if volunteerform.is_valid():
+                print('add volenteerform')
+                volunteerform.save()
+                return redirect('home:homeurl')
+            else:
+                print(volunteerform.errors)
+    else:
+        introspeakerform = forms.IntroSpeakerForm()
+        addsponsorform = forms.addSponsorForm()
+        volunteerform = forms.VolunteerForm()
 
-
-    
-    args = {'speakers' : speakers , 'introspeakerform' : introspeakerform}
+    args = {'speakers' : speakers , 'team' : team , 'introspeakerform' : introspeakerform , 'addsponsorform':addsponsorform , 'volunteerform' : volunteerform}
     return render(request, 'home/homepage.html', args)
 
 
-
-def signupview(request):
-
-    if request.method == 'POST':
-        signupForm = forms.SignupForm(request.POST)
-        if signupForm.is_valid():
-            signupForm.save()
-            print('save')
-    else:
-        signupForm = forms.SignupForm()
-    
-    return render(request, 'home/signup.html' ,{'form':signupForm})

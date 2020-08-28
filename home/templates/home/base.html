@@ -1,34 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %}
     <title>page title</title>
     {% endblock title %}
-    
+
     <link rel="stylesheet" href="{% static 'home/styles.css' %}">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'fonts/stylesheet.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </head>
-<body>
-    
-<nav class = "site-nav grid">
-    <h1>TEDx</h1>
-    <ul>
-        <li><a href="#home">2020</a></li>
-        <li><a href="#about">درباره ما</a></li>
-        <li><a href="#speakers">سخنرانان</a></li>
-        <li><a href="#sponsors">حامیان</a></li>
-        <li><a href="#blog">بلاگ</a></li>
-        <li><a href="#signUp">ثبت نام</a></li>
-    </ul>
-</nav>
 
-{% block content %}
-{% endblock content %}
-{% block script %}
-{% endblock script %}    
+<body>
+
+    <nav class="site-nav grid">
+        <div class="nav-menu hide">
+            <div class="menu">
+                <div class="line l1"></div>
+                <div class="line l2"></div>
+                <div class="line l3"></div>
+            </div>
+            <img src="{%static 'images/tedxlogo.png'%}" alt="">
+        </div>
+        <ul class="nav-links nav-home nav-show">
+            <li><a href="#home">2020</a></li>
+            <li><a href="#about">درباره ما</a></li>
+            <li><a href="#speakers">سخنرانان</a></li>
+            <li><a href="#sponsors">حامیان</a></li>
+            <li><a href="#blog">بلاگ</a></li>
+            <li><a href="#signUp">ثبت نام</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        {% block content %} {% endblock content %}
+    </div>
+    {% block script %} {% endblock script %}
+
+    <div class="footer">
+        <p>2020 © tedxlavasan.com. All rights reserved.</p>
+        <div class="social">
+            <a href=""><i class="fab fa-instagram"></i>instagram</a>
+            <a href=""><i class="fab fa-facebook-f"></i>facebook</a>
+            <a href=""><i class="fab fa-twitter"></i>twitter</a>
+        </div>
+    </div>
+
+    <script src="{% static 'JS/scripts.js' %}"></script>
 </body>
+
 </html>

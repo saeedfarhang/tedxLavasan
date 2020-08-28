@@ -7,10 +7,24 @@ from . import models
 class CityAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(models.HowYouKnowUs)
-class HowYouKnowUsAdmin(admin.ModelAdmin):
-    pass
-
 @admin.register(models.Speaker)
 class SpeakerAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(models.IntroSpeaker)
+class IntroSpeakerAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.Sponsor)
+class SponsorAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.Participation)
+class ParticipationAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(models.Team)
+class TeamAdmin(admin.ModelAdmin):
     pass

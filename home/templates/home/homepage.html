@@ -1,5 +1,5 @@
 {% extends 'home/base.html' %} {% load static %} {% block content %}
-<div class="home">
+<div class="home fsection">
     <img src="{%static 'images/img.jpg'%}" alt="">
     <img src="{%static 'images/tedxlogo.png'%}" alt="">
 
@@ -23,64 +23,359 @@
         </div>
     </div>
 
+    <div class="header-talk">
+        <iframe src="https://embed.ted.com/talks/wanda_irving_how_the_us_medical_community_fails_black_mothers" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    </div>
+
 
     <div class="arrow-down"><i class="fas fa-angle-down"></i></div>
 </div>
-<div class="aboutted">
+
+<div class="aboutted abouttab fsection small">
     <div class="tabs">
-        <div class="title">
+        <div class="titletab ted-tab">
             <p>تد</p>
             <div class="underline"></div>
         </div>
-        <div class="title">
+        <div class="titletab tedx-tab">
             <p>تدکس</p>
             <div class="underline"></div>
         </div>
-        <div class="title">
+        <div class="titletab tedxlavasan-tab">
             <p>تدکس لواسان</p>
             <div class="underline"></div>
         </div>
     </div>
-    <div class="abouttext">
+    <div class="abouttext abouttedtext">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
     </div>
 </div>
-<div class="speakers">
+<div class="aboutted abouttab fsection large">
+
+    <div class="tabted">
+        <div class="titletab ted-tab">
+            <p>تد</p>
+            <div class="underline"></div>
+        </div>
+        <div class="abouttext abouttedtext">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
+        </div>
+    </div>
+
+    <div class="second">
+        <div class="tedxtab">
+            <div class="titletab tedx-tab">
+                <p>تدکس</p>
+                <div class="underline"></div>
+
+            </div>
+            <div class="abouttext abouttedtext">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.
+                </p>
+            </div>
+        </div>
+
+        <div class="tedxlavasantab">
+            <div class="titletab tedxlavasan-tab">
+                <p>تدکس لواسان</p>
+                <div class="underline"></div>
+            </div>
+            <div class="abouttext abouttedtext">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="speakers fsection">
     <div class="section-title">
         <h1>سخنرانان</h1>
         <div class="underline"></div>
     </div>
-    {% for speaker in speakers %}
-    <a href="">
-        <div class="speaker">
-            <h2 class="speaker-name">{{speaker.name}}</h2>
-            <h2 class="speaker-title">{{speaker.title}}</h2>
-            <div class="line"></div>
-            <h2 class="speaker-intro">{{speaker.intro}}</h2>
-            <div class="social"><i class="fab fa-instagram"></i>
-                <a href="https://www.instagram.com/{{speaker.insta_id}}" target="_blank">{{speaker.insta_id}}</a>
+
+    <div class="speaker-grid">
+
+        {% for sp in speakers %}
+        <div class="sp-holder">
+            <a href="">
+                <div class="speaker" style="background-image: url({{sp.image.url}});"> </div>
+            </a>
+            <div class="sp-content">
+                <h1>{{sp.name}}</h1>
+                <h2>{{sp.title}}</h2>
+                <div class="line"></div>
+                <p>{{sp.intro}}</p>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i>
+            <p>{{sp.insta_id}}</p>
+            </a>
             </div>
         </div>
-    </a>
-    {% endfor %}
-    <div class="introducting-speaker">
-        <p>میخواهید سخنران معرفی کنید؟</p>
-        <div class="line"></div>
-        <div class="intro-speaker-btn">
-            معرفی سخنران
+        {% endfor %}
+
+        <div class="introducting-speaker">
+            <p>میخواهید سخنران معرفی کنید؟</p>
+            <div class="line"></div>
+            <div class="intro-speaker-btn">
+                معرفی سخنران
+            </div>
         </div>
     </div>
+
+
+
 </div>
-<div class="introducting-speaker-section">
+<div class="introducting-speaker-section fsection">
     <div class="section-title">
         <h1>معرفی سخنران</h1>
         <div class="underline"></div>
     </div>
-    <div class="intro-speaker-form">
-        <form action="">
-            {{introspeakerform}} {{csrf_token}}
-            <button type="submit">ثبت</button>
-        </form>
+    <form action="{% url 'home:homeurl' %}" method="POST">
+        {{introspeakerform.name}}
+        <!--  -->
+        {{introspeakerform.email}}
+        <!--  -->
+        {{introspeakerform.phone_number}}
+        <!--  -->
+        {{introspeakerform.work}}
+        <!--  -->
+        <div class="row">
+            <div class="select">
+                <p>شهر</p>
+                {{introspeakerform.city}}
+            </div>
+            <div class="select">
+                <p>زمینه های فعالیت</p>
+                {{introspeakerform.activity}}
+            </div>
+            <!--  -->
+        </div>
+        {{introspeakerform.why}}
+        <h1>اطلاعات شما</h1>
+        {{introspeakerform.yourname}}
+        <!--  -->
+        {{introspeakerform.youremail}}
+        <!--  -->
+        {{introspeakerform.yourphone_number}}
+        <!--  -->
+
+        {% csrf_token %}
+        <button type="submit">ثبت</button>
+        <input type="hidden" name="form_type" value="introspeakerform">
+    </form>
+
+</div>
+
+<div class="sponsors-section fsection">
+    <div class="section-title">
+        <h1>حامیان رویداد</h1>
+        <div class="underline"></div>
+    </div>
+    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+        باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شن.</p>
+    <div class="line"></div>
+    <div class="first-spons">
+        <div class="section-title">
+            <h1>حامیان اصلی</h1>
+            <div class="underline"></div>
+        </div>
+        <div class="spons-logo">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="sec-spons">
+        <div class="section-title">
+            <h1>حامیان دوم</h1>
+            <div class="underline"></div>
+        </div>
+        <div class="spons-logo">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="th-spons">
+        <div class="section-title">
+            <h1>مشارکت کنندگان</h1>
+            <div class="underline"></div>
+        </div>
+        <div class="spons-logo">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="add-sponsors add">
+        <p>میخواهید حامی رویداد شوید؟</p>
+        <div class="line"></div>
+        <div class="add-sponsors-btn add-btn">
+            ثبت حمایت
+        </div>
     </div>
 </div>
+
+<div class="add-sponsor-form fsection">
+    <div class="section-title">
+        <h1>حامی این رویداد شوید</h1>
+        <div class="underline"></div>
+    </div>
+    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+    <form action="" method="POST">
+        {{addsponsorform.companyname}}
+        <!--  -->
+        {{addsponsorform.email}}
+        <!--  -->
+        {{addsponsorform.phone_number}}
+        <!--  -->
+        {{addsponsorform.activity}}
+        <!--  -->
+        <div class="row">
+            <div class="participation select">
+                <p>نوع مشارکت</p>
+                {{addsponsorform.participation}}
+            </div>
+            <div class="city select">
+                <p>شهر</p>
+                {{addsponsorform.city}}
+            </div>
+
+            <!--  -->
+        </div>
+        {{addsponsorform.description}} {%csrf_token%}
+        <button type="submit">ثبت</button>
+        <input type="hidden" name="form_type" value="addsponsorform">
+    </form>
+</div>
+
+<div class="aboutlavasan abouttab fsection small ">
+    <div class="tabs">
+        <div class="titletab history-tab">
+            <p>تاریخچه</p>
+            <div class="underline"></div>
+        </div>
+        <div class="titletab attr-tab">
+            <p>ویژگی های شهر</p>
+            <div class="underline"></div>
+        </div>
+        <div class="titletab whattosee-tab">
+            <p>دیدنی ها</p>
+            <div class="underline"></div>
+        </div>
+    </div>
+    <div class="abouttext aboutlavasantext">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
+    </div>
+</div>
+
+<div class="aboutlavasan abouttab fsection large">
+
+    <div class="titletab history-tab">
+        <div class="titletab ted-tab">
+            <p>تاریخچه</p>
+            <div class="underline"></div>
+        </div>
+        <div class="abouttext abouttedtext">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
+        </div>
+    </div>
+    <div class="second">
+        <div class="titletab attr-tab">
+            <div class="titletab ted-tab">
+                <p>ویژگی های شهر</p>
+                <div class="underline"></div>
+            </div>
+            <div class="abouttext abouttedtext">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
+            </div>
+        </div>
+        <div class="titletab whattosee-tab">
+            <div class="titletab ted-tab">
+                <p>دیدنی ها</p>
+                <div class="underline"></div>
+            </div>
+            <div class="abouttext abouttedtext">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aspernatur rerum expedita illum sed nesciunt repellendus, eveniet dicta tenetur eligendi, nostrum doloribus alias libero maiores aliquam voluptas? Minus, deserunt corrupti.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="team-section fsection">
+    <div class="section-title">
+        <h1>تیم برگزاری</h1>
+        <div class="underline"></div>
+    </div>
+    <div class="members">
+        {% for member in team %}
+        <div class="member">
+            <img src="{{member.image.url}}" alt="">
+            <div class="line"></div>
+            <div class="content">
+                <div class="membername">
+                    <h1>{{member.name}}</h1>
+                    <p>{{member.title}}</p>
+                </div>
+                <div class="social">
+                    <a href="https://instagram.com/{{member.instagram}}"><i class="fab fa-instagram"></i>{{member.instagram}}</a>
+                    <a href="https://twitter.com/{{member.twitter}}"><i class="fab fa-twitter"></i>{{member.twitter}}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="volunteer add">
+            <p>میخواهید با ما همکاری کنید؟</p>
+            <div class="line"></div>
+            <div class="volunteer-btn add-btn">
+                ثبت همکاری
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="volunteer-form fsection">
+    <div class="section-title">
+        <h1>همکاری با ما</h1>
+        <div class="underline"></div>
+    </div>
+    <form action="" method="POST">
+        {{volunteerform.name}}
+        <!--  -->
+        {{volunteerform.email}}
+        <!--  -->
+        {{volunteerform.phone_number}}
+        <!--  -->
+        <div class="row">
+            <div class="select">
+                <p>آخرین مدرک تحصیلی</p>
+                {{volunteerform.degree}}</div>
+        </div>
+        {{volunteerform.field}} {%csrf_token%}
+        <button type="submit">ثبت</button>
+        <input type="hidden" name="form_type" value="volunteerform">
+    </form>
+</div>
+
+<div class="location-section fsection">
+    <div class="section-title">
+        <h1>محل برگزاری</h1>
+        <div class="underline"></div>
+    </div>
+    <a href="https://goo.gl/maps/mtmccDDFPJBFWmaF6">
+        <p>آدرس : لواسان - خیابان لواسان - کوچه شهید لواسان شمالی - سالن لواسانیان</p>
+        <p>برای باز شدن آدرس در گوگل مپ، کلیک کنید.</p>
+    </a>
+    <div class="map">
+        <div id="map"></div>
+    </div>
+</div>
+
+
 {% endblock content %}

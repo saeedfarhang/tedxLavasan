@@ -8,12 +8,23 @@ class Speaker(models.Model):
     title = models.CharField(max_length=100)
     intro = models.CharField(max_length=500)
     insta_id = models.CharField(max_length=100)
-    long_description = models.CharField(max_length=1000)
+    long_description = models.TextField()
     site_address = models.CharField(max_length=100)
+    image = models.ImageField(blank = True, default = 'user.png')
 
     def __str__(self):
         return self.name
 
+
+class Team(models.Model):
+    image = models.ImageField(blank = True, default = 'user.png')
+    name = models.CharField(max_length=56)
+    title = models.CharField(max_length=56)
+    instagram = models.CharField(max_length=100)
+    twitter = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
 
 # form options
 class City(models.Model):
@@ -22,19 +33,22 @@ class City(models.Model):
     def __str__(self):
         return self.title
 
-class HowYouKnowUs(models.Model):
-    title = models.CharField(max_length=500) 
-    
+# volunteer
+class Degree(models.Model):
+    title = models.CharField(max_length=100,blank=True)
+
+    def __str__(self):
+        return self.title
+ 
+# sponsor
+class Participation(models.Model):
+    title = models.CharField(max_length=100)
+
     def __str__(self):
         return self.title
 
-class Degree(models.Model):
-    degree = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.degree
-
-class Typeofparticipation(models.Model):
+# speakers
+class Activity(models.Model):
     title = models.CharField(max_length=100)
 
     def __str__(self):
@@ -44,33 +58,38 @@ class Typeofparticipation(models.Model):
 class IntroSpeaker(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
-    phone_regix = RegexValidator(regex=r'^\+?1?\d(9,15)$')
-    phone_number = models.CharField(validators=[phone_regix], max_length=17 , blank=True)
+    phone_number = models.CharField(max_length=17 , blank=True)
     work = models.CharField(max_length=50)
-    city = models.ForeignKey(City , on_delete=models.CASCADE)
-    typeofparticipation = models.ForeignKey(Typeofparticipation,on_delete=models.CASCADE)
+    city = models.ForeignKey(City , on_delete=models.CASCADE,default={''})
+    activity = models.ForeignKey(Activity,on_delete=models.CASCADE,null=True,blank=True)
+    why = models.TextField()
     yourname = models.CharField(max_length=50)
-    youremail = models.EmailField(max_length=254)
-    phone_regix = RegexValidator(regex=r'^\+?1?\d(9,15)$')
-    yourphone_number = models.CharField(validators=[phone_regix], max_length=17 , blank=True)
+    youremail = models.EmailField(max_length=254,blank=True)
+    yourphone_number = models.CharField(max_length=17 , blank=True)
 
+    def __str__(self):
+        return self.name
 
 class WorkWithUs(models.Model):
     name = models.CharField(max_length=56)
     email = models.EmailField()
-    phone_regix = RegexValidator(regex=r'^\+?1?\d(9,15)$')
-    phone_number = models.CharField(validators=[phone_regix], max_length=17 , blank=True)
+    phone_number = models.CharField(max_length=17 , blank=True)
     degree = models.ForeignKey(Degree , on_delete = models.CASCADE,null=True)
-    field = models.CharField(max_length=3000)
+    field = models.TextField()
+
+    def __str__(self):
+        return self.name
 
 # sponsers
 
-class Sponser(models.Model):
+class Sponsor(models.Model):
     companyname = models.CharField(max_length=56)
     email = models.EmailField()
-    phone_regix = RegexValidator(regex=r'^\+?1?\d(9,15)$')
-    phone_number = models.CharField(validators=[phone_regix], max_length=17 , blank=True)
-    whatyoudo = models.CharField(max_length=50,null=True)
-    typeofparticipation = models.ForeignKey(Typeofparticipation, on_delete = models.CASCADE, null=True)
+    phone_number = models.CharField(max_length=17 , blank=True)
+    activity = models.CharField(max_length=100)
+    participation = models.ForeignKey(Participation, on_delete = models.CASCADE, null=True)
     city = models.ForeignKey(City,on_delete= models.CASCADE, null=True)
-    describtion = models.CharField(max_length=3000,null=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.companyname
