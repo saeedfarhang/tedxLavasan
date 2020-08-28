@@ -106,6 +106,7 @@ function SectionShow(section) {
         setTimeout(function() {
             section.classList.remove("hide")
         }, 100)
+        window.scrollBy(0, 300)
     } else {
         section.classList.add("hide")
 

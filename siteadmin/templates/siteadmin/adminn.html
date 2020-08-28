@@ -1,4 +1,63 @@
-<h1>adminn</h1>
+{% extends 'home/base.html' %} {% block navlinks %}
+<li><a href="{% url 'home:homeurl' %}"><i class="fas fa-home" style="font-size: 1.4em;"></i></a></li>
+{% endblock navlinks %} {% block content %}
 
-{% for sp in speakers %}
-<a href="{% url 'siteadmin:editspeakerurl' speakerid=sp.id %}">{{sp.name}}</a> {% endfor %}
+<div class="speakers fsection">
+    <div class="section-title">
+        <h1>سخنرانان</h1>
+        <a class="admin-add" href="{% url 'siteadmin:addspeakerurl' %}"><i class="fas fa-plus"></i></a>
+
+        <div class="underline"></div>
+    </div>
+    <div class="speaker-grid">
+        {% for sp in speakers %}
+        <div class="sp-holder">
+            <a href="">
+                <div class="speaker" style="background-image: url({{sp.image.url}});"> </div>
+            </a>
+            <div class="sp-content">
+                <h1>{{sp.name}}</h1>
+                <h2>{{sp.title}}</h2>
+                <div class="line"></div>
+                <p>{{sp.intro}}</p>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i>
+            <p>{{sp.insta_id}}</p>
+            </a>
+                <a style="align-self: center;margin-top: 5px;" href="{% url 'siteadmin:editspeakerurl' speakerid=sp.id %}"><i class="fas fa-user-edit"></i></a>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<div class="team-section fsection">
+    <div class="section-title">
+        <h1>تیم برگزاری</h1>
+        <a class="admin-add" href="{% url 'siteadmin:addteamurl' %}"><i class="fas fa-plus"></i></a>
+        <div class="underline"></div>
+    </div>
+    <div class="members">
+        {% for member in team %}
+        <div class="member">
+            <img src="{{member.image.url}}" alt="">
+            <div class="line"></div>
+            <div class="content">
+                <div class="membername">
+                    <h1>{{member.name}}</h1>
+                    <p>{{member.title}}</p>
+                </div>
+                <div class="social">
+                    <a href="https://instagram.com/{{member.instagram}}"><i class="fab fa-instagram"></i>{{member.instagram}}</a>
+                    <a href="https://twitter.com/{{member.twitter}}"><i class="fab fa-twitter"></i>{{member.twitter}}</a>
+                </div>
+            </div>
+            <a href="{% url 'siteadmin:editteamurl' teamid=member.id %}"><i class="fas fa-user-edit"></i></a>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

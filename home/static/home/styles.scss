@@ -263,11 +263,6 @@ div.abouttab {
     .speaker-grid {
         width: 100%;
     }
-    .sp-holder {
-        // display: flex;
-        // flex-direction: column;
-        // width: 100%;
-    }
     .speaker {
         width: 100%;
         padding: 50% 0;
@@ -686,6 +681,115 @@ form {
     }
 }
 
+// 
+// 
+// speaker detail page
+.speaker-detail-section {
+    padding: 75px 0 0 0;
+    direction: rtl;
+    color: #fff;
+    // padding: 60px;
+    width: 100%;
+    min-height: 100vh;
+    background: #565656;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .sp-detail {
+        width: 80%;
+        .sp-image {
+            width: 100%;
+            padding: 65% 0 10% 0;
+            background-size: cover;
+            border-radius: 50px;
+            .info {
+                margin-right: 50px;
+                h1 {
+                    font-weight: bold;
+                    margin-bottom: 12px;
+                }
+                p {
+                    font-size: 1.4em;
+                }
+            }
+        }
+        .line {
+            width: 126px;
+            height: 3px;
+            background: var(--red);
+            margin: 25px auto;
+        }
+        .text {
+            p {}
+            .social {
+                display: flex;
+                flex-direction: column;
+                margin: 25px 0;
+                a {
+                    direction: ltr;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    font-weight: normal;
+                    letter-spacing: 1px;
+                    i {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 
+// 
+// admin login
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    form {
+        width: 60%;
+        direction: ltr;
+        display: flex;
+        label {
+            display: block;
+        }
+        input {
+            padding-left: 20px;
+        }
+        color: #fff;
+    }
+}
+
+// 
+//
+// admin section
+.admin-edit {
+    min-height: 100vh;
+    padding-top: 10vh;
+    form {
+        display: flex;
+        flex-direction: column;
+        a {
+            color: #fff;
+        }
+        #id_image {
+            border: none;
+        }
+        label {
+            display: block;
+        }
+    }
+}
+
+.admin-add {
+    color: var(--red);
+}
+
+// 
+//  
 // small tablets style
 @media screen and (min-width: 620px) {
     body {
@@ -792,6 +896,14 @@ form {
             width: 600px !important;
         }
     }
+    // 
+    // 
+    // speaker detail page
+    .speaker-detail-section {
+        padding: 75px 100px 0 100px;
+    }
+    // 
+    // 
 }
 
 // large tablet and small laptops style
@@ -932,6 +1044,9 @@ form {
             }
             padding: 54% 0;
         }
+    } // 
+    .speaker-detail-section {
+        padding: 105px 250px 0 250px;
     }
 }
 
@@ -1012,4 +1127,30 @@ form {
             padding: 54% 0;
         }
     }
+    // 
+    // speaker detail page
+    .speaker-detail-section {
+        padding: 75px 0 0 0;
+        justify-content: center;
+        .sp-detail {
+            width: 90%;
+            display: flex;
+            .sp-image {
+                width: 25%;
+                padding: 15% 0 5% 0;
+                .info {
+                    margin-right: 50px;
+                }
+            }
+            .line {
+                width: 3px;
+                height: auto;
+            }
+            .text {
+                width: 65%;
+            }
+        }
+    }
+    // 
+    // 
 }

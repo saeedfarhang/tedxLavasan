@@ -24,21 +24,23 @@
                 <div class="line l2"></div>
                 <div class="line l3"></div>
             </div>
-            <img src="{%static 'images/tedxlogo.png'%}" alt="">
+            <a href="{% url 'home:homeurl' %}"><img src="{%static 'images/tedxlogo.png'%}" alt=""></a>
         </div>
         <ul class="nav-links nav-home nav-show">
+            {% block navlinks %}
             <li><a href="#home">2020</a></li>
             <li><a href="#about">درباره ما</a></li>
             <li><a href="#speakers">سخنرانان</a></li>
             <li><a href="#sponsors">حامیان</a></li>
             <li><a href="#blog">بلاگ</a></li>
             <li><a href="#signUp">ثبت نام</a></li>
+            {% endblock navlinks %}
         </ul>
     </nav>
     <div class="container">
         {% block content %} {% endblock content %}
     </div>
-    {% block script %} {% endblock script %}
+
 
     <div class="footer">
         <p>2020 © tedxlavasan.com. All rights reserved.</p>
@@ -48,8 +50,8 @@
             <a href=""><i class="fab fa-twitter"></i>twitter</a>
         </div>
     </div>
+    {% block script %} {% endblock script %}
 
-    <script src="{% static 'JS/scripts.js' %}"></script>
 </body>
 
 </html>

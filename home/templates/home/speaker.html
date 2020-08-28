@@ -1,4 +1,35 @@
-{% extends 'home/base.html' %}
+{% extends 'home/base.html' %} {% load static %}
+<!--  -->
+{% block navlinks %}
+<li><a href="{% url 'home:homeurl' %}"><i class="fas fa-home" style="font-size: 1.4em;"></i></a></li>
+
+{% endblock navlinks %}
+<!--  -->
 {% block content %}
-{{speaker.name}}
+<div class="speaker-detail-section">
+    <div class="sp-detail">
+        <div class="sp-image" style="background-image: url({{speaker.image.url}});">
+            <div class="info">
+                <h1>{{speaker.name}}</h1>
+                <p>{{speaker.title}}</p>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="text">
+            <p>{{speaker.long_description}}</p>
+            <div class="social">
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i>
+                    <p>{{speaker.insta_id}}</p>
+                </a>
+                <a href="https://instagram.com"><i class="far fa-envelope"></i>
+                    <p>{{speaker.site_address}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
+<!--  -->
+{% block script %}
+<script src="{% static 'JS/navapp.js' %}"></script>
+{% endblock script %}

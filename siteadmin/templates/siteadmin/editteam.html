@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %} {% block navlinks %}
+ {% extends 'home/base.html' %} {% block navlinks %}
 <li><a href="{% url 'home:homeurl' %}"><i class="fas fa-home" style="font-size: 1.4em;"></i></a></li>
 {% endblock navlinks %} {% block content %}
 <div class="introducting-speaker-section admin-edit">
@@ -17,6 +17,7 @@
                     deletecl.value = false
                     console.log('Thing was not saved to the database.');
                 }
+
             }
         </script>
     </form>
