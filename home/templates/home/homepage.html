@@ -100,7 +100,7 @@
 
         {% for sp in speakers %}
         <div class="sp-holder">
-            <a href="">
+            <a href="{% url 'home:speakerurl' speakername=sp.id %}">
                 <div class="speaker" style="background-image: url({{sp.image.url}});"> </div>
             </a>
             <div class="sp-content">

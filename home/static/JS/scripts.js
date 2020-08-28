@@ -168,7 +168,7 @@ function mediaq() {
     } else {
         // laptops
         navLinks.classList.remove('nav-show')
-
+        navLinks.classList.add('nav-show-desktop')
         abouttabsSmall.forEach(element => {
             element.classList.add('nodisplay')
         })

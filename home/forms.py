@@ -2,7 +2,7 @@ from django import forms
 from . import models
 from django.utils.translation import gettext_lazy as _
 
-
+# home page forms
 class IntroSpeakerForm(forms.ModelForm):
     class Meta:
         model = models.IntroSpeaker
@@ -41,3 +41,4 @@ class VolunteerForm(forms.ModelForm):
             'phone_number':forms.TextInput(attrs={'placeholder': 'شماره تماس' }),
             'field':forms.Textarea(attrs={'placeholder': 'در چه زمینه ای میتوانید به ما کمک کنید؟' }),
     }
+

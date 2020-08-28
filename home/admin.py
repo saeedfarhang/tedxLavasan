@@ -7,9 +7,6 @@ from . import models
 class CityAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(models.Speaker)
-class SpeakerAdmin(admin.ModelAdmin):
-    pass
 
 @admin.register(models.IntroSpeaker)
 class IntroSpeakerAdmin(admin.ModelAdmin):
@@ -23,8 +20,4 @@ class SponsorAdmin(admin.ModelAdmin):
 
 @admin.register(models.Participation)
 class ParticipationAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(models.Team)
-class TeamAdmin(admin.ModelAdmin):
     pass

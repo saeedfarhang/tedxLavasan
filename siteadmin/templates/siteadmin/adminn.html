@@ -1,0 +1,4 @@
+<h1>adminn</h1>
+
+{% for sp in speakers %}
+<a href="{% url 'siteadmin:editspeakerurl' speakerid=sp.id %}">{{sp.name}}</a> {% endfor %}
